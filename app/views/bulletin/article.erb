@@ -1,0 +1,70 @@
+<body>
+    <!-- 로그인 -->
+      <div class="sign_tab" style="text-align:right; font-size:1.4em; text-decoration:none; color:#8797C7;"><a href="/bulletin/mailing">이메일 보내기</a>
+      </div>
+        <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">TED Daily Writing</a>
+    </div>
+      <script>
+        $('.dropdown-toggle').dropdown()
+      </script>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">검색</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        
+        <% if user_signed_in? %>
+        <li><%= link_to "Log out", destroy_user_session_path, :class => "log"  %></li>
+        <% else %>
+        <li><%= link_to "Sign in", user_session_path, :class => "log" %></li>
+        <li><%= link_to "Sign up", new_user_registration_path, :class => "log" %></li>
+        <% end %>  
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+   
+     
+     <div class="row contain">
+       <div class="col-md-4">
+       <a href="/bulletin/tim_ferriss">
+         <img id="title_img" width='100%' height='100%'
+         src="https://tedcdnpi-a.akamaihd.net/r/tedcdnpe-a.akamaihd.net/images/ted/83863_800x600.jpg?">
+         <div><a class="each_title" href="/bulletin/tim_ferriss">Tim Ferriss: Smash fear, learn anything</a></div>
+       </a>
+       </div>
+       
+       <div class="col-md-4">
+        <a href="/bulletin/susan_cain">
+         <img id="title_img" width='100%' height='100%' 
+         src="https://tedcdnpi-a.akamaihd.net/r/tedcdnpe-a.akamaihd.net/images/ted/b542b1ddd2e40cfcf9db3430598bc37cebfec8c1_1600x1200.jpg?">
+         <div><a class="each_title" href="/bulletin/susan_cain">Susan Cain: The power of introverts</a></div>
+       </div>
+        </a>
+       <div class="col-md-4">
+        <a href="/bulletin/ken_robinson">
+         <img id="title_img" width='100%' height='100%'
+         src="https://tedcdnpi-a.akamaihd.net/r/tedcdnpe-a.akamaihd.net/images/ted/1fbfce029b02db7da019e61ba7151e0b8f4354de_1600x1200.jpg?">
+         <div><a class="each_title" href="/bulletin/ken_robinson">Ken Robinson: Do schools kill creativity?</a></div>
+       </div>
+       </a>
+     </div>
+      <br><br>
+<!-- 여기까지 윗부분 -->
+
+

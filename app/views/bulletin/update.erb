@@ -1,0 +1,10 @@
+<div style="text-align:center">
+<% if (@post.password != @get_psw) %>
+
+<h1><%= @error %></h1>
+
+<% end %>
+<br>
+
+<button class="btn btn-default"> <a href='/bulletin/read/<%=@post.id%>' style="text-decoration:none;"> 돌아가기 </a></button>
+</div>

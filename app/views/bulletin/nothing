@@ -1,0 +1,129 @@
+  <!-- Table -->
+        <table class="table table-hover">
+
+          <tr>
+              <th style="text-align:center; font-size:1.5em;" class="col-md-1">번호</th>
+              <th style="text-align:center; font-size:1.5em;" class="col-md-5">제목</th>
+              <th style="text-align:center; font-size:1.5em;" class="col-md-2">글쓴이</th>
+              <th style="text-align:center; font-size:1.5em;" class="col-md-2">등록일</th>
+              <th style="text-align:center; font-size:1.5em;" class="col-md-1">조회</th>
+              <th style="text-align:center; font-size:1.5em;" class="col-md-1">추천</th>
+              <th style="text-align:center; font-size:1.5em;" class="col-md-1"></th>
+
+          </tr>
+          <% (@posts).reverse_each do |y| %>
+
+          <tr>
+              <td class="col-md-1" style="text-align:center">
+              <%= y.id %></td>
+              <td class="col-md-5" style="font-size:1.1em;">
+              <a href="/bulletin/read/<%= y.id %>" style="text-decoration:none; color: black;">
+              <strong>&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;<%= y.title %></strong></a> 
+              </td>
+             
+              <td class="col-md-2" style="text-align:center">
+              <%= y.user_name %></td>
+              <td class="col-md-2" style="text-align:center">
+              <%= y.created_at %></td>
+              <td class="col-md-1" style="text-align:center">
+              <%= y.user_name %></td>
+              <td class="col-md-1" style="text-align:center">
+              <%= y.user_name %></td>
+              <td class="col-md-2" style="text-align:center">
+              <!-- 삭제 버튼 -->
+               <a class="btn btn-default" id="mymodal" data-target="#layerpop" data-toggle="modal">삭제</a>
+              </td>
+              
+              
+              
+    <!-- Modal 작동 script -->
+    <script>
+    $('#myModal').click(function(){
+          $('#layerpop').modal('show');
+      });
+    </script>
+
+   
+          </tr>
+       <div id="layerpop" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                <h3 id="myModalLabel">삭제 하시겠습니까?</h3>
+              </div>
+              <div class="modal-body">
+              <!-- 비밀번호 입력 -->
+                 <form action="/bulletin/delete/<%= y.id %>" method="POST">
+                        <input class="string optional form-control" type="password" name="n_password" class="form-control" placeholder="password">
+                     <div class="modal-footer">
+                        <button class="btn" data-dismiss="modal" aria-hidden="true">취소</button>
+                        <button class="btn btn-default">삭제</button>
+                     </div>
+                </form>
+            <% end %>
+
+              </div>
+            </div>
+          </div>
+        </div>
+                  
+
+        </table>
+         <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">게시판 입니다</div>
+      <div class="panel-body">
+          <div class="alert alert-danger">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>작문 연습 게시판입니다.</strong> 자유롭게 써보세요!!
+          </div>
+        <p>
+           </p>
+      </div>
+      </div>
+        
+        
+        캐러셀
+          
+     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <img src="https://tedcdnpi-a.akamaihd.net/r/tedcdnpe-a.akamaihd.net/images/ted/83863_800x600.jpg?" >
+      <div class="carousel-caption">
+
+      </div>
+    </div>
+    <div class="item">
+      <img src="https://tedcdnpi-a.akamaihd.net/r/tedcdnpe-a.akamaihd.net/images/ted/b542b1ddd2e40cfcf9db3430598bc37cebfec8c1_1600x1200.jpg?">
+      <div class="carousel-caption">
+
+      </div>
+    </div>
+    <div class="item">
+      <img src="https://tedcdnpi-a.akamaihd.net/r/tedcdnpe-a.akamaihd.net/images/ted/1fbfce029b02db7da019e61ba7151e0b8f4354de_1600x1200.jpg?">
+      <div class="carousel-caption">
+
+      </div>
+    </div>
+    
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>

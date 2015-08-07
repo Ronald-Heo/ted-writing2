@@ -1,0 +1,79 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/" style="display:inline;">
+        <span class="ted_brand" alt="Brand">TED</span>&nbsp;&nbsp;<span class="ted_sub">daily writings</span>
+      </a>
+    </div>
+    <ul class="nav navbar-right">
+        <li class="log" style="font-size: 2em; margin-right: 10px; margin-top:0.9em;"><%= current_user.email %></li>
+    </ul>
+  </div>
+</nav>
+  
+  
+  
+    <div id="menu" class="col-md-12">
+    <h1 style="text-align:center;">Susan Cain: The power of introverts</h1>
+        <h1>Korean</h1>
+       <% (0..32).each do |i| %>
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample<%= i %>"  aria-expanded="false" aria-controls="collapseExample">
+            <%= @time[i] %><br>
+        </button>               
+        <div class="collapse collap" id="collapseExample<%= i %>">
+          <div class="well">
+          
+            <%= @content[i] %>
+          </div>
+          <div class="well">
+          <form action="/bulletin/write" method="POST" class="inline">
+               분 입력 : <input type="text" name="min">&nbsp;&nbsp;&nbsp;
+               작성자 : <input type="text" name="user_name" value="<%= current_user.email %>" ><br><br><br>
+               <textarea class="string optional form-control" rows="6" name="content"></textarea><br>
+               <input type="submit" value="쓰기">&nbsp;
+          </form>
+          </div>
+        </div>
+        <% end %>
+        
+        <br><br>
+        <h1>My writings  </h1>
+        
+       
+        <% @post.each do |text| %>
+            <% if (current_user.email == text.user_name) && (text.title == "susan_cain") %>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseEx<%= text.id%>"  aria-expanded="false" aria-controls="collapseExample">
+                <%= text.min %><br>
+            </button>
+            <% end %>
+        <% end %>
+        
+        <% @post.each do |text| %>
+        <% if (current_user.email == text.user_name) && (text.title == "susan_cain") %>
+         <div class="collapse collap" id="collapseEx<%= text.id %>" >
+          <div class="well">
+              
+            <%= text.content %>
+            <div style="text-align:right;">
+            <span>written by <%= text.user_name %></span>
+            </div>
+          </div> 
+        
+          </div>
+        <% end %>    
+        <% end %> 
+        
+        
+   <br><br>
+        <h1>English Script  </h1>
+        <% (0..32).each do |ie| %>
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExamplee<%= ie %>"  aria-expanded="false" aria-controls="collapseExample">
+            <%= @timee[ie] %><br>
+        </button>               
+        <div class="collapse collap" id="collapseExamplee<%= ie %>">
+          <div class="well">
+  
+            <%= @contente[ie] %>
+          </div>
+          </div>
+          <% end %>
